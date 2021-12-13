@@ -3,6 +3,7 @@ package com.company.reservation.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -14,4 +15,6 @@ public class Customer {
     private String firstname;
     private String lastname;
     private String phone;
+    @OneToMany(mappedBy = "customer_id")
+    private Set<Address> addresses;
 }

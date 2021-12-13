@@ -3,22 +3,39 @@ package com.company.reservation.controller;
 import com.company.reservation.annotation.AccessLog;
 import com.company.reservation.entity.Customer;
 import com.company.reservation.service.CustomerService;
+import com.company.reservation.util.MessageResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("customer")
-public class CustomerController {
+public class CustomerController extends BaseController {
     @Autowired
     private CustomerService customerService;
 
     @GetMapping("/all")
     @AccessLog(operation = "Get all information of Customers")
-    public List<Customer> getAllCustomers() {
-        return customerService.findAllCustomers();
+    public MessageResult getAllCustomers() {
+        return success("Successfully",customerService.findAllCustomers());
+    }
+
+    @GetMapping("/{id}")
+    @AccessLog(operation = "Get specific customer's information")
+    public MessageResult findOne(@PathVariable Long id) {
+        try {
+           return success(customerService.findOne(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return error("Can't find customer");
+    }
+
+    @PostMapping("/add")
+    @AccessLog(operation = "Post a new customer")
+    public MessageResult addCustomer(@RequestBody Customer customer) {
+        customerService.addCustomer(customer);
+        return success("Successfully added a new customer");
     }
 }
