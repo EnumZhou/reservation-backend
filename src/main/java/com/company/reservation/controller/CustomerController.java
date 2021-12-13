@@ -1,5 +1,6 @@
 package com.company.reservation.controller;
 
+import com.company.reservation.annotation.AccessLog;
 import com.company.reservation.entity.Customer;
 import com.company.reservation.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/all")
-    public List<Customer> getAll() {
+    @AccessLog(operation = "Get all information of Customers")
+    public List<Customer> getAllCustomers() {
         return customerService.findAllCustomers();
     }
 }
