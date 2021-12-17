@@ -4,6 +4,7 @@ import com.company.reservation.annotation.AccessLog;
 import com.company.reservation.entity.Customer;
 import com.company.reservation.service.CustomerService;
 import com.company.reservation.util.MessageResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("customer")
+@Slf4j
 public class CustomerController extends BaseController {
     @Autowired
     private CustomerService customerService;
 
     @GetMapping("/all")
-    @AccessLog(operation = "Get all information of Customers")
+    @AccessLog(operation = "Get all Customers")
     public MessageResult getAllCustomers() {
         return success("Successfully",customerService.findAllCustomers());
     }
