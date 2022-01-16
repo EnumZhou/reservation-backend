@@ -1,11 +1,13 @@
 package com.company.reservation.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@Builder
 @Entity
 public class Customer {
     @Id

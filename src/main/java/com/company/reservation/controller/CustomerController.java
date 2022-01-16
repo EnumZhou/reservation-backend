@@ -7,6 +7,7 @@ import com.company.reservation.util.MessageResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class CustomerController extends BaseController {
     @GetMapping("/{id}")
     @AccessLog(operation = "Get specific customer's information")
     public MessageResult findOne(@PathVariable Long id) {
+
         try {
            return success(customerService.findOne(id));
         } catch (Exception e) {

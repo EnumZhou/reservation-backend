@@ -1,6 +1,8 @@
 package com.company.reservation.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -23,7 +25,7 @@ public class User {
         private Long id;
 
         @NotBlank
-        @Size(max = 20)
+        @Size(max = 50)
         private String username;
 
         @NotBlank
@@ -40,6 +42,7 @@ public class User {
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
         private Set<Role> roles = new HashSet<>();
+
         public User() {
         }
         public User(String username, String email, String password) {
