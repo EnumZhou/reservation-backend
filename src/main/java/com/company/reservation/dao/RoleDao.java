@@ -8,3 +8,5 @@ import java.util.Optional;
 public interface RoleDao extends BaseDao<Role>{
     Optional<Role> findByName(RoleEnum name);
 }
+
+

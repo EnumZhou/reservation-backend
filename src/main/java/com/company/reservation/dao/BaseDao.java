@@ -6,4 +6,5 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 @NoRepositoryBean
 public interface BaseDao<T> extends JpaRepository<T,Long>, JpaSpecificationExecutor<T>{
+
 }

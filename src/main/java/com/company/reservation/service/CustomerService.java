@@ -33,11 +33,11 @@ public class CustomerService {
     }
 
     public void addCustomer(Customer customer) {
-        Customer newCustomer=new Customer();
-        newCustomer.setFirstname(customer.getFirstname().trim().toLowerCase());
-        newCustomer.setLastname(customer.getLastname().trim().toLowerCase());
-        newCustomer.setPhone(customer.getPhone().trim());
-        customerDao.save(newCustomer);
+//        Customer newCustomer=new Customer();
+//        newCustomer.setFirstname(customer.getFirstname().trim().toLowerCase());
+//        newCustomer.setLastname(customer.getLastname().trim().toLowerCase());
+//        newCustomer.setPhone(customer.getPhone().trim());
+//        customerDao.save(newCustomer);
     }
 
 

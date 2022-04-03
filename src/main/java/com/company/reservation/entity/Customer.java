@@ -1,7 +1,9 @@
 package com.company.reservation.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -9,6 +11,7 @@ import java.util.Set;
 @Data
 @Builder
 @Entity
+@NoArgsConstructor
 public class Customer {
     @Id
     @Column(name = "id", nullable = false)
